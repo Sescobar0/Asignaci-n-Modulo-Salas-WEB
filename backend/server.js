@@ -1,7 +1,16 @@
 const express = require("express");
+const routes = require("./routes/routes"); // Importamos el archivo de rutas
+
 const app = express();
 
-// Creacion del servidor
-app.listen(3000, () => {
-  console.log("server in port 3000");
+// Middleware para manejar JSON
+app.use(express.json());
+
+// Usar las rutas del archivo routes.js
+app.use(routes);
+
+// Iniciar el servidor
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
