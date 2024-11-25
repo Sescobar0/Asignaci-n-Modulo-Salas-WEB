@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = require("./routes/routes"); // Importamos el archivo de rutas
+const conexion = require("../backend/DB/conexion"); // Conexion a la DB
 
 const app = express();
 
