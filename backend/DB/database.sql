@@ -26,9 +26,6 @@ CREATE TABLE reservas (
     fecha_fin DATETIME NOT NULL,
     estado ENUM('confirmada', 'pendiente', 'cancelada') NOT NULL,
     motivo_cancelacion TEXT,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_modificacion TIMESTAMP,
-    comentarios TEXT,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) 
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_sala) REFERENCES salas(id_sala) 

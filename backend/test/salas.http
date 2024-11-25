@@ -1,0 +1,17 @@
+GET http://localhost:3000/salas
+
+###
+
+
+POST http://localhost:3000/salas
+Content-Type: application/json
+
+{
+    "nombre": "Sala 390",
+    "capacidad": 50,
+    "descripcion": "Sala para reuniones grandes",
+    "estado": "disponible"
+}
+
+### 
+DELETE http://localhost:3000/salas/3
