@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "server.js",
+  "scripts": {
+    "run": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sescobar0/Asignaci-n-Modulo-Salas-WEB.git#dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sescobar0/Asignaci-n-Modulo-Salas-WEB/issues"
+  },
+  "homepage": "https://github.com/Sescobar0/Asignaci-n-Modulo-Salas-WEB/tree/dev#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
