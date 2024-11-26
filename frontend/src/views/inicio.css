@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100%;
+  background-image: url("../assets/img/Banner.png");
+  background-repeat: no-repeat;
+  background-size: contain; /* Asegura que toda la imagen sea visible */
+  background-position: center;
+}

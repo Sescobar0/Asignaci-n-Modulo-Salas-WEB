@@ -1,0 +1,63 @@
+/* Contenedor principal */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+/* Card que contiene el formulario */
+.card {
+  width: 100%;
+  max-width: 500px; /* Ajusta el ancho máximo de la card */
+  margin: 0 auto; /* Centra la card */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Alineación y espaciado */
+h1 {
+  text-align: center;
+  color: #007bff; /* Azul para el título */
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+input {
+  margin-left: 5px;
+  border: solid 2px rgba(113, 113, 113, 0.201);
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Mensajes de estado */
+.alert {
+  margin-top: 20px;
+  font-size: 14px;
+}

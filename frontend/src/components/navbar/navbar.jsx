@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom"; // Importar Link de React Router
+import "../navbar/navStyle.css";
 
 function Navbar() {
   return (
@@ -9,9 +10,8 @@ function Navbar() {
         <nav className="navbar header-nav navbar-expand-lg">
           <div className="container">
             {/* Logo */}
-            <Link to="/" className="navbar-brand">
+            <Link className="navbar-brand">
               {" "}
-              {/* Cambiar a Link */}
               <img
                 src="src/assets/img/image.png"
                 height="100px"
@@ -27,9 +27,8 @@ function Navbar() {
             >
               <ul className="navbar-nav mx-auto">
                 <li>
-                  <Link to="/" className="nav-link">
+                  <Link to="/inicio" className="nav-link">
                     {" "}
-                    {/* Cambiar a Link */}
                     Inicio
                   </Link>
                 </li>
@@ -42,31 +41,19 @@ function Navbar() {
                 <li className="ms-5">
                   <Link to="/mis-reservas" className="nav-link">
                     {" "}
-                    {/* Cambiar a Link */}
                     Mis reservas
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Botones */}
-            <div className="ms-auto me-2 d-none d-lg-block">
-              <Link className="color-btn" to="/registro">
-                {" "}
-                {/* Cambiar a Link */}
-                INICIO SESION
-              </Link>
-            </div>
-
             <div className="ms-auto d-none d-lg-block">
               <Link className="color-btn" to="/login">
                 {" "}
-                {/* Cambiar a Link */}
                 REGISTRO
               </Link>
             </div>
 
-            {/* Botón desplegable */}
             <button
               className="navbar-toggler collapsed"
               type="button"

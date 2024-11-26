@@ -13,6 +13,9 @@ import {
 import Navbar from "./components/navbar/navbar";
 import Reservas from "./views/reservas";
 import Registro from "./views/Registro";
+import Inicio from "./views/Inicio";
+import MisReservas from "./views/misReservas";
+import CrearReserva from "./CrearReserva";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
       <Routes>
         <Route path="/reservas" element={<Reservas />} />
         <Route path="/login" element={<Registro />} />
+        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/crearReserva" element={<CrearReserva />} />
+        <Route path="/mis-reservas" element={<MisReservas />} />
       </Routes>
     </Router>
   );
