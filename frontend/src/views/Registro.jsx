@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importamos useNavigate
-import "./registro.css";
+import "./registrousuario.css";
 
 const Registro = () => {
   const url = "http://localhost:5000/usuario"; // Asegúrate de que la URL esté correcta
