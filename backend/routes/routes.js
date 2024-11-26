@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 
-const router = express.Router();
+const router = express.Router(); // Crear el router primero
+
+// Aplicar CORS al router
+router.use(cors());
 
 // Conectar el controlador al prefijo '/usuarios'
 const usuariosController = require("../controllers/usuarioController"); // Importamos el controlador
 router.use("/usuario", usuariosController);
-
 
 // Conectar el controlador al prefijo '/salasController'
 const salasController = require("../controllers/salasController"); // Importamos el controlador

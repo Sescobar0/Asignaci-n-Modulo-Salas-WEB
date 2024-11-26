@@ -37,16 +37,15 @@ ruta.get("/:id", (req, res) => {
 
 // Ruta para agregar un nuevo usuario
 ruta.post("/", (req, res) => {
-  const { nombre, email, rol, contrasena } = req.body;
+  const { nombre, email, contrasena } = req.body; // Eliminamos 'rol'
   const query =
-    "INSERT INTO usuarios (nombre, email, rol, contrasena) VALUES (?, ?, ?, ?)";
-  conexion.query(query, [nombre, email, rol, contrasena], (err, results) => {
+    "INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)";
+  conexion.query(query, [nombre, email, contrasena], (err, results) => {
     if (err) {
       console.error("❌ Error al agregar el usuario:", err.message);
       res.status(500).send("Error al agregar el usuario.");
     } else {
-      console.log("✅ Usuario agregado correctamente.");
-      res.status(201).send("Usuario agregado correctamente.");
+      res.status(201).json({ message: "Usuario agregado correctamente." });
     }
   });
 });

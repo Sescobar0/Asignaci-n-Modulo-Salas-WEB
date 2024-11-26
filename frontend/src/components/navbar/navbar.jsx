@@ -51,7 +51,7 @@ function Navbar() {
 
             {/* Botones */}
             <div className="ms-auto me-2 d-none d-lg-block">
-              <Link className="color-btn" to="/login">
+              <Link className="color-btn" to="/registro">
                 {" "}
                 {/* Cambiar a Link */}
                 INICIO SESION
@@ -59,7 +59,7 @@ function Navbar() {
             </div>
 
             <div className="ms-auto d-none d-lg-block">
-              <Link className="color-btn" to="/registro">
+              <Link className="color-btn" to="/login">
                 {" "}
                 {/* Cambiar a Link */}
                 REGISTRO

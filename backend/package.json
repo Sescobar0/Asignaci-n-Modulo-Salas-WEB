@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Sescobar0/Asignaci-n-Modulo-Salas-WEB/tree/dev#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "firebase-admin": "^13.0.1",
     "mysql": "^2.18.1",
