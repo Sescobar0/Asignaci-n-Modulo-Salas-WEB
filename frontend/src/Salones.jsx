@@ -8,10 +8,11 @@ import sala2 from "./assets/img/sala2.jpg";
 import sala3 from "./assets/img/sala3.jpg";
 import sala4 from "./assets/img/sala4.jpg";
 import sala5 from "./assets/img/sala5.jpg";
+import sala6 from "./assets/img/sala6.jpeg";
 
 function Salones() {
   const [salones, setSalones] = useState([]);
-  const imagenes = [sala1, sala2, sala3, sala4, sala5];
+  const imagenes = [sala1, sala2, sala3, sala4, sala5,sala6];
 
   //hacer una petición a la DB
   useEffect(() => {
@@ -37,8 +38,7 @@ function Salones() {
               <div className="card-body">
                 <h1 className="card-title">Sala {index + 1}</h1>
                 <p className="card-subtitle">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Sala de trabajos, reuniones, desarrollo y entretenimiento. Reserva para hacerlo más divertido.
                 </p>
                 <div className="d-grid gap-2">
                   <Link to="/crearReserva"
