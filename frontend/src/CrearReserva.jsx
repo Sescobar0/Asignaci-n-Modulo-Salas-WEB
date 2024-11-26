@@ -3,7 +3,7 @@ import moment from "moment";
 import "./crearReserva.css"; // Mantén tu archivo CSS personalizado
 
 const CrearReserva = () => {
-  const url = "http://localhost:3306/reservas"; // Ruta del backend
+  const url = "http://localhost:5000/reservas"; // Ruta del backend
   const [values, setValues] = useState({
     fechaInicio: "",
     fechaFinal: "",
@@ -11,14 +11,14 @@ const CrearReserva = () => {
   const [message, setMessage] = useState(""); // Para mostrar mensaje de éxito o error
   const [loading, setLoading] = useState(false); // Para mostrar el estado de carga
 
-  // Función para limitar la hora mínima para reservar
+  // Función para limitar la hora mínima para reservar (7:00 AM)
   const obtenerFechaMinima = () => {
     const hoy = moment();
     hoy.set("hour", 7).set("minute", 0); // Hora mínima: 7:00 AM
     return hoy.format("YYYY-MM-DDTHH:mm");
   };
 
-  // Función para limitar la hora máxima para reservar
+  // Función para limitar la hora máxima para reservar (6:00 PM)
   const obtenerFechaMaxima = () => {
     const hoy = moment();
     hoy.set("hour", 18).set("minute", 0); // Hora máxima: 6:00 PM
@@ -110,7 +110,11 @@ const CrearReserva = () => {
               onChange={controlarCambios}
               id="fechaFinal"
               placeholder="Fecha final"
-              min={values.fechaInicio || obtenerFechaMinima()}
+              min={
+                values.fechaInicio
+                  ? moment(values.fechaInicio).format("YYYY-MM-DDTHH:mm")
+                  : obtenerFechaMinima()
+              }
               max={obtenerFechaMaxima()}
               required
             />

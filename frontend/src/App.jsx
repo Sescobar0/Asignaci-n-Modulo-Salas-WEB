@@ -9,12 +9,14 @@ import {
   Routes,
   Route,
   useLocation,
+  Form,
 } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Reservas from "./views/reservas";
 import Registro from "./views/Registro";
 import Inicio from "./views/Inicio";
 import MisReservas from "./views/misReservas";
+import CrearSala from "./components/form/CrearSala";
 import CrearReserva from "./CrearReserva";
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/crearReserva" element={<CrearReserva />} />
         <Route path="/mis-reservas" element={<MisReservas />} />
+        <Route path="/crearSala" element={<CrearSala />} />
       </Routes>
     </Router>
   );

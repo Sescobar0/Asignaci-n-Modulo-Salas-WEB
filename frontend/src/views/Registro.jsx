@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importamos useNavigate
+import "./registro.css";
 
 const Registro = () => {
-  const url = "http://localhost:3000/usuario"; // Asegúrate de que la URL esté correcta
+  const url = "http://localhost:5000/usuario"; // Asegúrate de que la URL esté correcta
   const [values, setValues] = useState({
     nombre: "",
     email: "",
@@ -59,7 +60,7 @@ const Registro = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 registro">
       <h1>Registro nuevo usuario NIDO</h1>
       <form onSubmit={handleForm}>
         <label>Nombre</label>

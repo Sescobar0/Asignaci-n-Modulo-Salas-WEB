@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,56 +12,72 @@ function Salones() {
   const [salones, setSalones] = useState([]);
   const imagenes = [sala1, sala2, sala3, sala4, sala5];
 
-  //hacer una petición a la DB
+  // Hacer una petición a la DB
   useEffect(() => {
-    fetch('http://localhost:3000/salas')
+    fetch("http://localhost:3000/salas")
       .then((response) => response.json())
       .then((data) => setSalones(data))
       .catch((error) => console.error("Error al obtener salones:", error));
   }, []);
 
-
   return (
     <div className="container-fluid">
       <div className="row">
-        {salones.map((salon, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <div className="card">
-              <img
-                className="card-img-top"
-                src={imagenes[index]}
-                alt={`Sala ${index + 1}`}
-                height={300}
-              />
-              <div className="card-body">
-                <h1 className="card-title">Sala {index + 1}</h1>
-                <p className="card-subtitle">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <div className="d-grid gap-2">
-                  <Link to="/crearReserva"
-                    className={`btn my-2 p-3 ${salon.estado === "disponible" ? "btn-success" : "btn-danger"
-                  }`}
-                    role="button"
-                    style={{ pointerEvents: salon.estado !== "disponible" ? "none" : "auto" }}
+        {salones.map((salon, index) => {
+          // Verifica si la sala tiene una imagen asociada, si no, usa la imagen por defecto
+          const imagen = salon.imagen
+            ? salon.imagen
+            : imagenes[index % imagenes.length];
+
+          return (
+            <div className="col-md-4 mb-4" key={index}>
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src={imagen}
+                  alt={`Sala ${index + 1}`}
+                  height={300}
+                />
+                <div className="card-body">
+                  <h1 className="card-title">Sala {index + 1}</h1>
+                  <p className="card-subtitle">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <div className="d-grid gap-2">
+                    <Link
+                      to="/crearReserva"
+                      className={`btn my-2 p-3 ${
+                        salon.estado === "disponible"
+                          ? "btn-success"
+                          : "btn-danger"
+                      }`}
+                      role="button"
+                      style={{
+                        pointerEvents:
+                          salon.estado !== "disponible" ? "none" : "auto",
+                      }}
+                    >
+                      {salon.estado === "disponible"
+                        ? "Disponible"
+                        : "Reservada"}
+                    </Link>
+                  </div>
+                  <div
+                    className={`alert ${
+                      salon.estado === "disponible"
+                        ? "alert-success"
+                        : "alert-danger"
+                    }`}
+                    role="alert"
                   >
                     {salon.estado === "disponible" ? "Disponible" : "Reservada"}
-                  </Link>
-                </div>
-                <div
-                  className={`alert ${salon.estado === "disponible"
-                      ? "alert-success"
-                      : "alert-danger"
-                    }`}
-                  role="alert"
-                >
-                  {salon.estado === "disponible" ? "Disponible" : "Reservada"}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

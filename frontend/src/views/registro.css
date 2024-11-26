@@ -1,0 +1,22 @@
+.registro {
+  box-shadow: 0px 0px 10px 10px rgba(87, 87, 87, 0.082);
+  border-radius: 10px;
+  width: 400px;
+  position: absolute;
+  top: 50%; /* Posiciona el centro verticalmente */
+  left: 50%; /* Posiciona el centro horizontalmente */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajusta el elemento para que se centre perfectamente */
+  color: black;
+}
+
+.mt-4 h1 {
+  margin-top: 20px;
+  color: black;
+}
+
+#root {
+  background-color: rgb(255, 255, 255);
+}
