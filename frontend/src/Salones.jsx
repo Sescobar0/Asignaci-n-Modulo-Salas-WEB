@@ -41,8 +41,7 @@ function Salones() {
                 <div className="card-body">
                   <h1 className="card-title">Sala {index + 1}</h1>
                   <p className="card-subtitle">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Sala de trabajos, reuniones, desarrollo y entretenimiento. Reserva para hacerlo más divertido.
                   </p>
                   <div className="d-grid gap-2">
                     <Link
