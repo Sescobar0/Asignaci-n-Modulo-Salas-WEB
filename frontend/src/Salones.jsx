@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import sala1 from "./assets/img/sala1.jpg";
@@ -15,9 +16,9 @@ function Salones() {
   //hacer una petición a la DB
   useEffect(() => {
     fetch('http://localhost:3000/salas')
-    .then((response) => response.json())
-    .then((data) => setSalones(data))
-    .catch((error) => console.error("Error al obtener salones:", error));
+      .then((response) => response.json())
+      .then((data) => setSalones(data))
+      .catch((error) => console.error("Error al obtener salones:", error));
   }, []);
 
 
@@ -40,22 +41,20 @@ function Salones() {
                   the bulk of the card's content.
                 </p>
                 <div className="d-grid gap-2">
-                  <button
-                    className={`btn my-2 p-3 ${
-                      salon.estado === "disponible" ? "btn-success" : "btn-danger"
-                    }`}
-                    type="button"
-                    disabled={salon.estado !== "disponible"}
+                  <Link to="/crearReserva"
+                    className={`btn my-2 p-3 ${salon.estado === "disponible" ? "btn-success" : "btn-danger"
+                  }`}
+                    role="button"
+                    style={{ pointerEvents: salon.estado !== "disponible" ? "none" : "auto" }}
                   >
                     {salon.estado === "disponible" ? "Disponible" : "Reservada"}
-                  </button>
+                  </Link>
                 </div>
                 <div
-                  className={`alert ${
-                    salon.estado === "disponible"
+                  className={`alert ${salon.estado === "disponible"
                       ? "alert-success"
                       : "alert-danger"
-                  }`}
+                    }`}
                   role="alert"
                 >
                   {salon.estado === "disponible" ? "Disponible" : "Reservada"}
