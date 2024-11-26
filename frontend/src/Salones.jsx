@@ -14,7 +14,7 @@ function Salones() {
 
   //hacer una petición a la DB
   useEffect(() => {
-    fetch('http://localhost:3000/salones') //reemplazar por el endpoint adecuado
+    fetch('http://localhost:3000/salas')
     .then((response) => response.json())
     .then((data) => setSalones(data))
     .catch((error) => console.error("Error al obtener salones:", error));
