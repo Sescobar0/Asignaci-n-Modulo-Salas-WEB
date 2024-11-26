@@ -10,6 +10,7 @@
     -50%
   ); /* Ajusta el elemento para que se centre perfectamente */
   color: black;
+  padding: 20px;
 }
 
 .mt-4 h1 {

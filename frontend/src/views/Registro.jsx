@@ -60,7 +60,7 @@ const Registro = () => {
   };
 
   return (
-    <div className="container mt-4 registro">
+    <div className="registro">
       <h1>Registro nuevo usuario NIDO</h1>
       <form onSubmit={handleForm}>
         <label>Nombre</label>
