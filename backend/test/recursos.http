@@ -1,0 +1,16 @@
+GET http://localhost:3000/recursos
+
+###
+
+
+POST http://localhost:3000/recursos
+Content-Type: application/json
+
+{
+    "id_sala": 2,
+    "nombre": "Televisor",
+    "descripcion": "pantalla plana de 30 pulgadas"
+}
+
+### 
+DELETE http://localhost:3000/recursos/1

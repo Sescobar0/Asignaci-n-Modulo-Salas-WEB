@@ -1,0 +1,20 @@
+GET http://localhost:3000/reservas
+
+###
+
+
+POST http://localhost:3000/reservas
+Content-Type: application/json
+
+{
+    "id_usuario": 1,
+    "id_sala": 2,
+    "fecha_inicio": "2024-11-26 10:00:00",
+    "fecha_fin": "2024-11-26 12:00:00",
+    "estado": "confirmada",
+    "motivo_cancelacion": null
+}
+
+
+### 
+DELETE http://localhost:3000/reserva/1

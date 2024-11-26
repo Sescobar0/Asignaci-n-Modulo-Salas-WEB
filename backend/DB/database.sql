@@ -43,16 +43,4 @@ CREATE TABLE recursos_salas (
         ON DELETE CASCADE ON UPDATE CASCADE            -- Relación con la tabla de salas
 );
 
--- Tabla de **Historial de Reservas** (historial_reservas)
-CREATE TABLE historial_reservas (
-    id_historial INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,  -- Identificador único del historial
-    id_reserva INT UNSIGNED NOT NULL,                     -- Reserva a la que pertenece este historial
-    accion ENUM('creación', 'modificación', 'cancelación') NOT NULL,  -- Tipo de acción realizada
-    fecha_accion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,      -- Fecha en que se realizó la acción
-    id_usuario INT UNSIGNED NOT NULL,                     -- Usuario que realizó la acción
-    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva) 
-        ON DELETE CASCADE ON UPDATE CASCADE,               -- Relación con la tabla de reservas
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) 
-        ON DELETE CASCADE ON UPDATE CASCADE               -- Cambiar a CASCADE o RESTRICT
-);
 

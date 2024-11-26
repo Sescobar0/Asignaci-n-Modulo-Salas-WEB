@@ -14,4 +14,4 @@ Content-Type: application/json
 }
 
 ### 
-DELETE http://localhost:3000/salas/3
+DELETE http://localhost:3000/salas/1

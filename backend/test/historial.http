@@ -1,0 +1,4 @@
+GET http://localhost:3000/historialreservas
+
+### 
+GET http://localhost:3000/historialreservas/1
