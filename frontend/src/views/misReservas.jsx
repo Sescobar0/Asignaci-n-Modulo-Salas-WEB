@@ -4,7 +4,7 @@ import "../views/misReservas.css";
 const MisReservas = () => {
   const [reservas, setReservas] = useState([]);
   const [error, setError] = useState(null);
-  const url = "http://localhost:5000/reservas"; // URL del endpoint del backend
+  const url = "http://localhost:3000/reservas"; // URL del endpoint del backend
 
   // Función para formatear la fecha
   const formatDate = (dateString) => {

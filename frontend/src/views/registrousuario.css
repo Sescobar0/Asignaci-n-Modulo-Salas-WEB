@@ -1,23 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap");
+#root {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
+}
+
 .registro {
+  font-weight: bolder;
   box-shadow: 0px 0px 10px 10px rgba(87, 87, 87, 0.082);
   border-radius: 10px;
   width: 400px;
-  position: absolute;
-  top: 50%; /* Posiciona el centro verticalmente */
-  left: 50%; /* Posiciona el centro horizontalmente */
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Ajusta el elemento para que se centre perfectamente */
-  color: black;
+  color: rgb(59, 59, 219);
   padding: 20px;
-}
-
-.mt-4 h1 {
-  margin-top: 20px;
-  color: black;
-}
-
-#root {
   background-color: rgb(255, 255, 255);
+}
+
+.registro input {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.row1 {
+  width: 80%;
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  justify-content: center; /* Alinea los elementos en el centro horizontalmente */
+  align-items: center; /* Alinea los elementos en el centro verticalmente */
+}
+
+.row1 .registro {
+  z-index: 1;
+  margin-right: -60px; /* Añade un espacio entre el formulario y la imagen */
+}
+
+.row1 .row2 {
+  width: 100px;
+  height: 500px;
+  flex: 1; /* La imagen ocupa el 50% del ancho */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row1 .row2 img {
+  box-shadow: 0px 0px 10px 10px rgba(87, 87, 87, 0.082);
+
+  border-radius: 10px;
+  width: 100%; /* La imagen ocupa el 100% del contenedor */
+  height: 100%; /* La imagen ocupa toda la altura del contenedor */
+  object-fit: cover; /* Asegura que la imagen se ajuste correctamente sin distorsionar */
+}
+
+.registro h1 {
+  color: rgb(32, 32, 32);
+}
+
+.registro input:focus {
+  background-color: rgb(241, 251, 255);
+  transition: 3s;
+}
+
+.loading-indicator {
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+}
+
+.loading-indicator p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.registro-img {
+  width: 100%;
+  height: auto;
+  transition: opacity 1s ease-in-out; /* Duración y tipo de transición */
+  opacity: 0; /* Estado inicial */
+}
+
+.fade-in {
+  opacity: 1; /* Imagen visible */
+}
+
+.fade-out {
+  opacity: 0; /* Imagen oculta */
 }
