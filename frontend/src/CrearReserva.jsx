@@ -3,7 +3,7 @@ import moment from "moment";
 import "./crearReserva.css"; // Mantén tu archivo CSS personalizado
 
 const CrearReserva = () => {
-  const url = "http://localhost:5000/reservas"; // Ruta del backend
+  const url = "http://localhost:3000/reservas"; // Ruta del backend
   const [values, setValues] = useState({
     fechaInicio: "",
     fechaFinal: "",

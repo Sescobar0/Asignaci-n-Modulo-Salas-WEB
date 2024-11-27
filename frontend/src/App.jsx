@@ -18,6 +18,7 @@ import Inicio from "./views/Inicio";
 import MisReservas from "./views/misReservas";
 import CrearSala from "./components/form/CrearSala";
 import CrearReserva from "./CrearReserva";
+import Login from "./views/Login";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       <NavBarWithLocation />
       <Routes>
         <Route path="/reservas" element={<Reservas />} />
-        <Route path="/login" element={<Registro />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/crearReserva" element={<CrearReserva />} />
         <Route path="/mis-reservas" element={<MisReservas />} />
@@ -40,7 +42,9 @@ function NavBarWithLocation() {
   return (
     <>
       {/* Navbar solo se muestra si la ruta no es "/login" */}
-      {location.pathname !== "/login" && <Navbar />}
+      {location.pathname !== "/registro" && location.pathname !== "/login" && (
+        <Navbar />
+      )}
     </>
   );
 }
