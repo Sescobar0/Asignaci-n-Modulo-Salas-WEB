@@ -12,7 +12,7 @@ conexion.connect((err) => {
   if (err) {
     console.error("❌ Error al conectar a la BD: " + err.message);
   } else {
-    console.log("✅ Conexión exitosa a la base de datos sistemanido ");
+    console.log("✅ Conexión exitosa a la base de datos");
   }
 });
 // se exporta para ser usada en cualquier parte del proyecto​
