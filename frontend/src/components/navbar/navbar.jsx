@@ -1,9 +1,11 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom"; // Importar Link de React Router
 import "../navbar/navStyle.css";
 
 function Navbar() {
+  // Recuperar el usuario logueado desde localStorage
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
   return (
     <>
       <header className="main-header">
@@ -11,7 +13,6 @@ function Navbar() {
           <div className="container">
             {/* Logo */}
             <Link className="navbar-brand">
-              {" "}
               <img
                 src="src/assets/img/image.png"
                 height="100px"
@@ -28,19 +29,16 @@ function Navbar() {
               <ul className="navbar-nav mx-auto">
                 <li>
                   <Link to="/inicio" className="nav-link">
-                    {" "}
                     Inicio
                   </Link>
                 </li>
                 <li className="ms-5">
                   <Link to="/reservas" className="nav-link">
-                    {" "}
                     Reservas
                   </Link>
                 </li>
                 <li className="ms-5">
                   <Link to="/mis-reservas" className="nav-link">
-                    {" "}
                     Mis reservas
                   </Link>
                 </li>
@@ -48,10 +46,13 @@ function Navbar() {
             </div>
 
             <div className="ms-auto d-none d-lg-block">
-              <Link className="color-btn" to="/login">
-                {" "}
-                REGISTRO
-              </Link>
+              {user ? (
+                <span className="color-btn">{user.nombre}</span> // Mostrar nombre del usuario logueado
+              ) : (
+                <Link className="color-btn" to="/login">
+                  REGISTRO
+                </Link>
+              )}
             </div>
 
             <button

@@ -5,10 +5,8 @@ import imagen1 from "../assets/img/sala1.jpg";
 import imagen2 from "../assets/img/sala2.jpg";
 import imagen3 from "../assets/img/sala3.jpg";
 
-const Registro = () => {
-  const url = "http://localhost:5000/usuario";
+const Login = () => {
   const [values, setValues] = useState({
-    nombre: "",
     email: "",
     password: "",
   });
@@ -27,59 +25,33 @@ const Registro = () => {
     });
   };
 
-  const handleForm = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     setIsLoading(true);
 
-    const data = {
-      nombre: values.nombre,
-      email: values.email,
-      contrasena: values.password,
-    };
-
-    // Obtener usuarios del localStorage o inicializar un array vacío
+    // Obtener usuarios de localStorage
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Verificar si el correo ya está registrado
-    const userExists = users.some((user) => user.email === values.email);
+    // Buscar el usuario en el localStorage
+    const user = users.find(
+      (user) => user.email === values.email && user.password === values.password
+    );
 
-    if (userExists) {
-      alert("El correo ya está registrado.");
-      setIsLoading(false);
-      return;
-    }
+    setTimeout(() => {
+      if (user) {
+        // Si el usuario existe y la contraseña es correcta, guardar al usuario logueado
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    // Guardar nuevo usuario en localStorage
-    users.push({
-      nombre: values.nombre,
-      email: values.email,
-      password: values.password,
-    });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        console.log("Operación exitosa:", result);
-        navigate("/inicio"); // Redirigir al inicio después de registrarse
+        // Redirigir a la página de inicio
+        navigate("/inicio");
       } else {
-        console.error("Error al registrar el usuario:", result);
+        // Si no se encuentra el usuario o la contraseña es incorrecta
+        alert("Correo o contraseña incorrectos");
       }
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error al realizar la operación:", error);
-      setIsLoading(false);
-    }
+
+      setIsLoading(false); // Después de los 2 segundos, detener el indicador de carga
+    }, 2000); // 2 segundos de espera
   };
 
   useEffect(() => {
@@ -97,18 +69,8 @@ const Registro = () => {
   return (
     <div className="row1">
       <div className="registro">
-        <h1>Registro nuevo usuario NIDO</h1>
-        <form onSubmit={handleForm}>
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            value={values.nombre}
-            onChange={controlarCambios}
-            className="form-control"
-            placeholder="Ingrese su nombre completo"
-            required
-          />
+        <h1>Iniciar sesión NIDO</h1>
+        <form onSubmit={handleLogin}>
           <label>Correo electrónico</label>
           <input
             type="email"
@@ -126,7 +88,7 @@ const Registro = () => {
             value={values.password}
             onChange={controlarCambios}
             className="form-control"
-            placeholder="Ingresa la contraseña"
+            placeholder="Ingresa tu contraseña"
             required
           />
           <button
@@ -134,22 +96,22 @@ const Registro = () => {
             className="btn btn-primary"
             disabled={isLoading}
           >
-            {isLoading ? "Cargando..." : "Enviar"}
+            {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
           </button>
         </form>
         {isLoading && (
           <div className="loading-indicator">
-            <p>Registrando...</p>
+            <p>Iniciando sesión...</p>
           </div>
         )}
         <p>
-          ¿Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a>
+          ¿No tienes cuenta? <a href="/registro">Regístrate aquí</a>
         </p>
       </div>
       <div className="row2">
         <img
           src={images[currentImageIndex]}
-          alt="Imagen de registro"
+          alt="Imagen de inicio de sesión"
           className={`registro-img ${fade ? "fade-in" : "fade-out"}`}
         />
       </div>
@@ -157,4 +119,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default Login;
